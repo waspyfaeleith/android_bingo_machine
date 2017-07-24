@@ -1,11 +1,8 @@
 package com.example.sandy.bingomachine;
 
-import android.content.Context;
 import android.util.Log;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,18 +12,21 @@ import java.util.Scanner;
  * Created by sandy on 19/07/2017.
  */
 
-public class BingoNumbers {
+public class BingoNumbers implements Serializable {
     private ArrayList<Integer> numbers;
+    private ArrayList<Integer> calledNumbers;
     private Scanner fileReader;
     private HashMap<Integer, String> lingo;
 
     public BingoNumbers() {
         this.numbers = new ArrayList<Integer>();
+        this.calledNumbers = new ArrayList<Integer>();
         this.setUpNumbers();
     }
 
     public BingoNumbers(InputStream file) {
         this.numbers = new ArrayList<Integer>();
+        this.calledNumbers = new ArrayList<Integer>();
         this.fileReader = new Scanner(file);
         this.lingo = new HashMap<>();
         this.setUpNumbers();
@@ -34,10 +34,15 @@ public class BingoNumbers {
     }
 
     public Integer getNumber() {
-        Collections.shuffle(numbers);
-        Integer number = numbers.get(0);
-        numbers.remove(0);
+        Collections.shuffle(this.numbers);
+        Integer number = this.numbers.get(0);
+        this.numbers.remove(0);
+        this.calledNumbers.add(number);
         return number;
+    }
+
+    public ArrayList<Integer> getCalledNumbers() {
+        return new ArrayList<>(this.calledNumbers);
     }
 
     public String getLingo(Integer number) {
@@ -50,6 +55,7 @@ public class BingoNumbers {
 
     public void resetNumbers() {
         this.numbers.clear();
+        this.calledNumbers.clear();
         this.setUpNumbers();
     }
 

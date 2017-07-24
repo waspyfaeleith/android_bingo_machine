@@ -1,5 +1,6 @@
 package com.example.sandy.bingomachine;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +43,12 @@ public class BingoNumbersActivity extends AppCompatActivity {
             lingoText.setText("All numbers are out!");
             number.setText("");
         }
+    }
+
+    public void houseCalledButtonClick(View Button) {
+        Intent intent = new Intent(BingoNumbersActivity.this, CheckNumbersActivity.class);
+        intent.putExtra("called_numbers", this.bingoNumbers.getCalledNumbers() );
+        startActivity(intent);
     }
 
     public void newGameButtonClicked (View Button) {

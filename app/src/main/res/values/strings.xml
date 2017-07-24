@@ -3,4 +3,5 @@
     <string name="next_number">Your next number is...</string>
     <string name="get_number">Get Number</string>
     <string name="new_game">New Game</string>
+    <string name="house_called">House Called</string>
 </resources>
