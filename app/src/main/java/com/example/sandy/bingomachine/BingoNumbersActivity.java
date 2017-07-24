@@ -16,6 +16,7 @@ public class BingoNumbersActivity extends AppCompatActivity {
     Button getNumber;
     Button newGame;
     BingoNumbers bingoNumbers;
+    Integer currentNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class BingoNumbersActivity extends AppCompatActivity {
             String lingo = bingoNumbers.getLingo(num);
             Log.d("Bingo Machine", "Got " + num + " : " + lingo);
             number.setText(num.toString());
+            this.currentNumber = num;
             lingoText.setText(lingo);
         } else {
             lingoText.setText("All numbers are out!");
@@ -48,6 +50,7 @@ public class BingoNumbersActivity extends AppCompatActivity {
     public void houseCalledButtonClick(View Button) {
         Intent intent = new Intent(BingoNumbersActivity.this, CheckNumbersActivity.class);
         intent.putExtra("called_numbers", this.bingoNumbers.getCalledNumbers() );
+        intent.putExtra("last_called_number", this.currentNumber);
         startActivity(intent);
     }
 

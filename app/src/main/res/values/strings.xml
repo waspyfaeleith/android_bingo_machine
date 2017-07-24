@@ -4,4 +4,6 @@
     <string name="get_number">Get Number</string>
     <string name="new_game">New Game</string>
     <string name="house_called">House Called</string>
+    <string name="checking_numbers">Checking numbers</string>
+    <string name="last_number_called">Last number called was</string>
 </resources>

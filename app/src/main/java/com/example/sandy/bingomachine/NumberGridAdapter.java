@@ -2,6 +2,7 @@ package com.example.sandy.bingomachine;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class NumberGridAdapter extends ArrayAdapter<Integer> {
         text.setText(number.toString());
         if (calledNumbers.contains(number)) {
             text.setTextColor(Color.RED);
+            text.setTypeface(null, Typeface.BOLD);
         }
 
         return view;
