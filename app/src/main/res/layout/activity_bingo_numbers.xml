@@ -13,7 +13,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/textView"
+        android:id="@+id/lingo"
+        android:height="50dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/number"
         android:height="200dp"
         android:layout_alignParentLeft="true"

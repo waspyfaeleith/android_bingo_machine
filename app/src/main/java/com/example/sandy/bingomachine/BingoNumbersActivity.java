@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.InputStream;
+
 public class BingoNumbersActivity extends AppCompatActivity {
     TextView number;
+    TextView lingoText;
     Button getNumber;
     Button newGame;
     BingoNumbers bingoNumbers;
@@ -19,19 +22,25 @@ public class BingoNumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bingo_numbers);
 
         number = (TextView)findViewById(R.id.number);
+        lingoText = (TextView)findViewById(R.id.lingo);
         getNumber = (Button)findViewById(R.id.get_number);
         newGame = (Button)findViewById(R.id.new_game);
 
-        bingoNumbers = new BingoNumbers();
+        InputStream input = getResources().openRawResource(R.raw.lingo);
+        bingoNumbers = new BingoNumbers(input);
     }
 
     public void getNumberButtonClick(View Button) {
         Log.d("Bingo Machine", "getting number");
         if (bingoNumbers.count() > 0) {
             Integer num = bingoNumbers.getNumber();
+            String lingo = bingoNumbers.getLingo(num);
+            Log.d("Bingo Machine", "Got " + num + " : " + lingo);
             number.setText(num.toString());
+            lingoText.setText(lingo);
         } else {
-            number.setText("All numbers are out!");
+            lingoText.setText("All numbers are out!");
+            number.setText("");
         }
     }
 
