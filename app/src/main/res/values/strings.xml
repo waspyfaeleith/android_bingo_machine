@@ -6,4 +6,5 @@
     <string name="house_called">House Called</string>
     <string name="checking_numbers">Checking numbers</string>
     <string name="last_number_called">Last number called was</string>
+    <string name="eyes_down">Eyes down...</string>
 </resources>

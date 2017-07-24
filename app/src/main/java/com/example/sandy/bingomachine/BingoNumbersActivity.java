@@ -30,6 +30,9 @@ public class BingoNumbersActivity extends AppCompatActivity {
 
         InputStream input = getResources().openRawResource(R.raw.lingo);
         bingoNumbers = new BingoNumbers(input);
+
+        String lingo = getResources().getString(R.string.eyes_down);
+        lingoText.setText(lingo);
     }
 
     public void getNumberButtonClick(View Button) {
@@ -58,5 +61,7 @@ public class BingoNumbersActivity extends AppCompatActivity {
         Log.d("Bingo Machine", "new game");
         bingoNumbers.resetNumbers();
         number.setText("");
+        String lingo = getResources().getString(R.string.eyes_down);
+        lingoText.setText(lingo);
     }
 }
