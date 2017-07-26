@@ -10,28 +10,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sandy.bingomachine.BingoNumbersActivity">
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lingo"
-        android:height="50dp"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
         android:gravity="center"
-        android:textSize="40dp"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/number"
-        android:textSize="300sp"
-        android:gravity="center"
-        android:layout_centerVertical="false"
+        android:orientation="vertical"
         android:layout_above="@+id/get_number"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="17dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/lingo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/number"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerHorizontal="true"
+            android:height="50dp"
+            android:gravity="center"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerVertical="false"
+            android:background="@drawable/bingo_ball_xlarge"
+            android:gravity="center"
+            android:textSize="255sp" />
+    </LinearLayout>
 
     <Button
         android:text="@string/new_game"
